@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "177471096675",
+    "firebase_url": "https://survivortracker-a9523.firebaseio.com",
+    "project_id": "survivortracker-a9523",
+    "storage_bucket": "survivortracker-a9523.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177471096675:android:0f42dc9872fc9108",
+        "android_client_info": {
+          "package_name": "com.example.sue.survivortracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177471096675-muqooh64m1rh3ph4oqvtanmuevn3l3nr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAr53xgFDm4RmOtiXL1oAYGQKkpJ9YptbA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
