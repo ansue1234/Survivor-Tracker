@@ -87,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
                 // Set the child's data to the value passed in from the text box.
                 childRef.setValue(text.getText().toString());
 
+                text.setText("");
+
             }
         });
 
@@ -95,15 +97,19 @@ public class MainActivity extends AppCompatActivity {
 
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-
+                // look for refrence in database
                 Query myQuery = myRef.orderByValue().equalTo((String)
                         listView.getItemAtPosition(position));
-
+                // listen to the database
                 myQuery.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
+                    //get a data snapshot of the database
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if (dataSnapshot.hasChildren()) {
+                            //look for the key of the text and remove it
                             DataSnapshot firstChild = dataSnapshot.getChildren().iterator().next();
+                            
+                            // removes item in database
                             firstChild.getRef().removeValue();
                         }
                     }
