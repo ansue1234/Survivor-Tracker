@@ -30,7 +30,7 @@ public class Person {
     }
 
     public String getName () {
-        String fullname = getFirstName() + " " + getLastName();
+        String fullname = getFirstName() + " " + getLastName() + " " + getLocation();
         return fullname;
     }
 }
