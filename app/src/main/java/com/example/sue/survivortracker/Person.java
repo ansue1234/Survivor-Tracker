@@ -8,7 +8,8 @@ public class Person {
     private String firstName;
     private String lastName;
     private String location;
-
+    public Person(){
+    }
     public Person(String a, String b, String c){
         firstName = a;
         lastName = b;
@@ -26,5 +27,10 @@ public class Person {
 
     public String getLocation(){
         return location;
+    }
+
+    public String getName () {
+        String fullname = getFirstName() + " " + getLastName();
+        return fullname;
     }
 }
