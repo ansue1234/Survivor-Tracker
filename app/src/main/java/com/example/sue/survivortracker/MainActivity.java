@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText surname = (EditText) findViewById(R.id.lastName);
         final EditText text = (EditText) findViewById(R.id.loc);
         final Button button = (Button) findViewById(R.id.addButton);
-
+        final Button search = (Button) findViewById(R.id.search);
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -114,58 +114,16 @@ public class MainActivity extends AppCompatActivity {
                 text.setText("");
 
             }
+
+
+
         });
-
-        // Delete items when clicked
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                // look for refrence in database
-//                Query myQuery = myRef.orderByValue().equalTo((String)
-//                        listView.getItemAtPosition(position));
-//                // listen to the database
-//                myQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    //get a data snapshot of the database
-//                    public void onDataChange(DataSnapshot dataSnapshot) {
-//                        if (dataSnapshot.hasChildren()) {
-//                            //look for the key of the text and remove it
-//                            DataSnapshot firstChild = dataSnapshot.getChildren().iterator().next();
-//
-//                            // removes item in database
-//                            firstChild.getRef().removeValue();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(DatabaseError databaseError) {
-//                    }
-//                })
-//                ;}
-//        })
+        search.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                setContentView(R.layout.search_main);
+            }
+        });
        }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 }
 
 //____________________________________________________________________________
