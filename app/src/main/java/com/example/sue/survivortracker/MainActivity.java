@@ -25,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Person user;
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         // Get ListView object from xml
@@ -75,17 +77,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Add items via the Button and EditText at the bottom of the window.
+        final EditText forename = (EditText) findViewById(R.id.firstName);
+        final EditText surname = (EditText) findViewById(R.id.lastName);
         final EditText text = (EditText) findViewById(R.id.todoText);
         final Button button = (Button) findViewById(R.id.addButton);
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
                 // Create a new child with a auto-generated ID.
                 DatabaseReference childRef = myRef.push();
 
                 // Set the child's data to the value passed in from the text box.
+                //String first_name =  forename.getText().toString();
+                //String last_name =  surname.getText().toString();
+                //String position =  text.getText().toString();
+                //childRef.setValue(new Person(first_name, last_name,position));
                 childRef.setValue(text.getText().toString());
+                //Person user = new Person(text.getText().toString())
+
 
                 text.setText("");
 
@@ -95,8 +104,7 @@ public class MainActivity extends AppCompatActivity {
         // Delete items when clicked
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // look for refrence in database
                 Query myQuery = myRef.orderByValue().equalTo((String)
                         listView.getItemAtPosition(position));
