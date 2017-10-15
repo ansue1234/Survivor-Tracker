@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 //                adapter.add(value.getFirstName());
                 final Person value  = dataSnapshot.getValue(Person.class);
                 adapter.add(value.getName());
-                Log.i(adapter);
+                //Log.i(adapter);
             }
 
             // This function is called each time a child item is removed.
