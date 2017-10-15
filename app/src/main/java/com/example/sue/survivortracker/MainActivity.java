@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         // Get ListView object from xml
         final ListView listView = (ListView) findViewById(R.id.listView);
 
@@ -78,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText text = (EditText) findViewById(R.id.todoText);
         final Button button = (Button) findViewById(R.id.addButton);
 
+        // when button clicks send text in text box to database
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 // Set the child's data to the value passed in from the text box.
                 childRef.setValue(text.getText().toString());
 
+                // Clear text in the text box
                 text.setText("");
 
             }
