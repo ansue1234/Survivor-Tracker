@@ -3,6 +3,7 @@ package com.example.sue.survivortracker;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import com.example.sue.survivortracker.R;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -22,7 +23,7 @@ public class MainSearch extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_main);
-        System.out.println("Hello World");
+        System.out.print("Hello World");
 
         // Get ListView object from xml
         final ListView listView = (ListView) findViewById(R.id.resultView);

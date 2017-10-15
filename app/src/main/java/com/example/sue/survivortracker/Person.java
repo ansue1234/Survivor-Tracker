@@ -5,9 +5,9 @@ package com.example.sue.survivortracker;
  */
 
 public class Person {
-    private String firstName;
-    private String lastName;
-    private String location;
+    public String firstName;
+    public String lastName;
+    public String location;
     public Person(){
     }
     public Person(String a, String b, String c){
