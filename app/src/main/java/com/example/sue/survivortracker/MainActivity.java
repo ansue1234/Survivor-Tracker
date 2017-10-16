@@ -110,7 +110,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Create a new child with a auto-generated ID.
                 //DatabaseReference childRef = myRef.push();
-                DatabaseReference usersRef = myRef.child("users");
+                //DatabaseReference usersRef = myRef.child("users");
+                DatabaseReference usersRef = myRef;
 
                 Map<String, Person> users = new HashMap<String, Person>();
 
