@@ -5,10 +5,15 @@ package com.example.sue.survivortracker;
  */
 
 public class Person {
-    public String firstName;
-    public String lastName;
-    public String location;
+    private String firstName;
+    private String lastName;
+    private String location;
+
     public Person(){
+        firstName = "null";
+        lastName = "null";
+        location = "null";
+
     }
     public Person(String a, String b, String c){
         firstName = a;
@@ -29,8 +34,10 @@ public class Person {
         return location;
     }
 
-    public String getName () {
-        String fullname = getFirstName() + " " + getLastName() + " " + getLocation();
+    @Override
+    public String toString () {
+        String fullname = this.firstName + " " + this.lastName + " " + this.location;
         return fullname;
     }
+
 }

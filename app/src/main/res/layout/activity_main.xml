@@ -56,11 +56,11 @@
             android:hint="Location"
             android:inputType="textAutoComplete|textPersonName" />
 
-    <Button
-        android:id="@+id/addButton"
-        android:layout_width="362dp"
-        android:layout_height="wrap_content"
-        android:text="Add Name" />
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Name" />
 
     <Button
         android:id="@+id/search"

@@ -5,6 +5,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -76,7 +77,8 @@ public class MainActivity extends AppCompatActivity {
 //                value = dataSnapshot.getValue();
 //                adapter.add(value.getFirstName());
                 final Person value  = dataSnapshot.getValue(Person.class);
-                adapter.add(value.getName());
+                adapter.add(value.toString());
+                System.out.println("TEST: " + value.toString());
 
                 //Log.i(adapter);
             }
@@ -134,6 +136,8 @@ public class MainActivity extends AppCompatActivity {
         });
         search.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(),MainSearch.class);
+                startActivity(i);
                 setContentView(R.layout.search_main);
             }
         });
