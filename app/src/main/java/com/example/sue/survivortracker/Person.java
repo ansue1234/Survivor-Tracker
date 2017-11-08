@@ -36,8 +36,7 @@ public class Person {
 
     @Override
     public String toString () {
-        String fullname = this.firstName + " " + this.lastName + " " + this.location;
-        return fullname;
+        return (this.firstName + " " + this.lastName + " " + this.location);
     }
 
 }

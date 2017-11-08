@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Search for names" />
+        android:hint="Search for Names"
+        android:inputType="textPersonName" />
 
     <ListView
         android:id="@+id/resultView"

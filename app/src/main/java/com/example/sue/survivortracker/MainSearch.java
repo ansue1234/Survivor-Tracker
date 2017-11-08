@@ -25,9 +25,10 @@ public class MainSearch extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
         setContentView(R.layout.search_main);
 
-        // Get ListView object from xml
+         //Get ListView object from xml
         final ListView listView = (ListView) findViewById(R.id.resultView);
 
         // Create a new Adapter
@@ -43,15 +44,15 @@ public class MainSearch extends AppCompatActivity {
         // Get a reference to the todoItems child items it the database
         final DatabaseReference myRef = database.getReference("todoItems");
 
-        final Button backButton = (Button) findViewById(R.id.back);
+        //final Button backButton = (Button) findViewById(R.id.back);
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(i);
-                setContentView(R.layout.activity_main);
-            }
-        });
+//        backButton.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                Intent i = new Intent(getApplicationContext(),MainActivity.class);
+//                startActivity(i);
+//                setContentView(R.layout.activity_main);
+//            }
+//        });
 
         // Assign a listener to detect changes to the child items
         // of the database reference.
