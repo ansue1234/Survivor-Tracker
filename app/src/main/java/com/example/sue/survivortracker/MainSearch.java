@@ -30,9 +30,10 @@ public class MainSearch extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
         setContentView(R.layout.search_main);
 
-        // Get ListView object from xml
+         //Get ListView object from xml
         final ListView listView = (ListView) findViewById(R.id.resultView);
 
         // Create a new Adapter
@@ -51,8 +52,9 @@ public class MainSearch extends AppCompatActivity {
         // Get a reference to the todoItems child items it the database
         final DatabaseReference myRef = database.getReference("todoItems").child("users");
 
-        final Button backButton = (Button) findViewById(R.id.back);
+        //final Button backButton = (Button) findViewById(R.id.back);
 
+<<<<<<< HEAD
         backButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
@@ -60,6 +62,15 @@ public class MainSearch extends AppCompatActivity {
                 setContentView(R.layout.activity_main);
             }
         });
+=======
+//        backButton.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                Intent i = new Intent(getApplicationContext(),MainActivity.class);
+//                startActivity(i);
+//                setContentView(R.layout.activity_main);
+//            }
+//        });
+>>>>>>> faf95afaa591c76c87f837599a915cfd9921bcc8
 
         final EditText searchField = (EditText) findViewById(R.id.nameSearch);
         //Assign a listener to check if we made changes to the text field.

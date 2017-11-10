@@ -136,21 +136,15 @@ public class MainActivity extends AppCompatActivity {
         });
         search.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),MainSearch.class);
-                startActivity(i);
+                Intent i = new Intent(getApplicationContext(), MainSearch.class);
+                //Intent i = new Intent(this, MainSearch.class);
+
                 setContentView(R.layout.search_main);
+                startActivity(i);
             }
         });
        }
 }
 
-//____________________________________________________________________________
-//          THIS is the Place that change layout
-//        ************************************************************************************************
-//        search.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                setContentView(R.layout.search_main);
-//            }
-//        });
-//        ************************************************************************************************
+
 

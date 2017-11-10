@@ -34,9 +34,15 @@ public class Person {
         return location;
     }
 
+<<<<<<< HEAD
     public String getName() {
         String fullname = this.firstName + " " + this.lastName;
         return fullname;
+=======
+    @Override
+    public String toString () {
+        return (this.firstName + " " + this.lastName + " " + this.location);
+>>>>>>> faf95afaa591c76c87f837599a915cfd9921bcc8
     }
 
     public String getStatus() {

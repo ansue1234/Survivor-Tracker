@@ -12,8 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+<<<<<<< HEAD
         android:hint="Search for names"
         android:inputType="textAutoCorrect|textPersonName" />
+=======
+        android:hint="Search for Names"
+        android:inputType="textPersonName" />
+>>>>>>> faf95afaa591c76c87f837599a915cfd9921bcc8
 
     <ListView
         android:id="@+id/resultView"
