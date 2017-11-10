@@ -77,8 +77,8 @@ public class MainActivity extends AppCompatActivity {
 //                value = dataSnapshot.getValue();
 //                adapter.add(value.getFirstName());
                 final Person value  = dataSnapshot.getValue(Person.class);
-                adapter.add(value.toString());
-                System.out.println("TEST: " + value.toString());
+                adapter.add(value.getName());
+                //System.out.println("TEST: " + value.toString());
 
                 //Log.i(adapter);
             }
@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 String first_name =  forename.getText().toString();
                 String last_name =  surname.getText().toString();
                 String position =  text.getText().toString();
-                usersRef.child(first_name+" "+last_name).setValue(new Person(first_name, last_name,position));
+                usersRef.child(first_name + " " + last_name).setValue(new Person(first_name, last_name, position));
                 //childRef.setValue(text.getText().toString());
                 //Person user = new Person(text.getText().toString())
 

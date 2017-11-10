@@ -34,10 +34,13 @@ public class Person {
         return location;
     }
 
-    @Override
-    public String toString () {
-        String fullname = this.firstName + " " + this.lastName + " " + this.location;
+    public String getName() {
+        String fullname = this.firstName + " " + this.lastName;
         return fullname;
     }
 
+    public String getStatus() {
+        String fullname = this.firstName + " " + this.lastName + " " + this.location;
+        return fullname;
+    }
 }
