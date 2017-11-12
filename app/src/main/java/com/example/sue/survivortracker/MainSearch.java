@@ -19,8 +19,12 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by cap1 on 10/15/17.
@@ -41,55 +45,73 @@ public class MainSearch extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, android.R.id.text1);
 
         //array of persons
-        final ArrayList<String> personList = new ArrayList<String>();
+        final ArrayList<String> keys = new ArrayList<String>();
 
         // Assign adapter to ListView
         listView.setAdapter(adapter);
 
         // Connect to the Firebase database
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         // Get a reference to the todoItems child items it the database
-        final DatabaseReference myRef = database.getReference("todoItems").child("users");
+        final DatabaseReference myRef = database.getReference("data").child("users");
 
-        //final Button backButton = (Button) findViewById(R.id.back);
+        final Button backButton = (Button) findViewById(R.id.back);
 
-<<<<<<< HEAD
         backButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                Intent i = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(i);
                 setContentView(R.layout.activity_main);
             }
         });
-=======
-//        backButton.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                Intent i = new Intent(getApplicationContext(),MainActivity.class);
-//                startActivity(i);
-//                setContentView(R.layout.activity_main);
-//            }
-//        });
->>>>>>> faf95afaa591c76c87f837599a915cfd9921bcc8
+
 
         final EditText searchField = (EditText) findViewById(R.id.nameSearch);
-        //Assign a listener to check if we made changes to the text field.
-        searchField.addTextChangedListener(new TextWatcher() {
+        final Button searchButton = (Button) findViewById(R.id.searchButton);
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                AnalyseArray(personList, searchField.getText().toString());
-            }
+            public void onClick(View view) {
+                final String searchFieldText = searchField.getText().toString();
+                myRef.addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                        for (int i=0; i < keys.size(); i++) {
+                            final Person person = dataSnapshot.getValue(Person.class);
+                            String personName = person.getName();
+                            System.out.println("Keys " + dataSnapshot.getKey());
+                            if (dataSnapshot.getKey() == "Bob Smith ") {
+                                System.out.println("Keys can find them");
+                            }
+                            if (personName.equals(searchFieldText)) {
+                                System.out.println("We made it past the if statement");
+                                adapter.add(person.getName());
+                                System.out.println("Keys " + adapter.getCount());
+                            }
+//                        }
+                    }
 
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                    @Override
+                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-                // TODO Auto-generated method stub
-            }
+                    }
 
-            @Override
-            public void afterTextChanged(Editable s) {
+                    @Override
+                    public void onChildRemoved(DataSnapshot dataSnapshot) {
 
-                // TODO Auto-generated method stub
+                    }
+
+                    @Override
+                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
             }
         });
 
@@ -105,14 +127,16 @@ public class MainSearch extends AppCompatActivity {
             public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
                 Person value = dataSnapshot.getValue(Person.class);
                 //adapter.add(value.getName());
-                personList.add(value.getName());
-                System.out.println(personList);
+//                keys.add(dataSnapshot.getKey());
+//                System.out.println("Keys " + keys);
+//                personList.add(value.getName());
+//                System.out.println(personList);
             }
 
             // This function is called each time a child item is removed.
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-                Person value = dataSnapshot.getValue(Person.class);
-                adapter.add(value.getName());
+//                Person value = dataSnapshot.getValue(Person.class);
+//                adapter.add(value.getName());
             }
 
             // The following functions are also required in ChildEventListener implementations.
@@ -129,18 +153,5 @@ public class MainSearch extends AppCompatActivity {
                 Log.w("TAG:", "Failed to read value.", error.toException());
             }
         });
-    }
-
-    public void AnalyseArray(ArrayList<String> array, String searchParameter) {
-        // Do something
-        int wordLength = searchParameter.length();
-        for(int i=0; i < array.size(); i++) {
-            if(array.get(i).length() < wordLength) {
-                array.remove(i);
-                continue;
-            }
-        }
-
-
     }
 }

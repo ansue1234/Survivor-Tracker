@@ -8,17 +8,20 @@ public class Person {
     private String firstName;
     private String lastName;
     private String location;
+    private String uid;
 
     public Person(){
         firstName = "null";
         lastName = "null";
         location = "null";
+        uid = "null";
 
     }
-    public Person(String a, String b, String c){
+    public Person(String a, String b, String c, String d){
         firstName = a;
         lastName = b;
         location = c;
+        uid = d;
     }
 
 
@@ -34,15 +37,11 @@ public class Person {
         return location;
     }
 
-<<<<<<< HEAD
+    public String getUID() { return uid; }
+
     public String getName() {
         String fullname = this.firstName + " " + this.lastName;
         return fullname;
-=======
-    @Override
-    public String toString () {
-        return (this.firstName + " " + this.lastName + " " + this.location);
->>>>>>> faf95afaa591c76c87f837599a915cfd9921bcc8
     }
 
     public String getStatus() {
